@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  purchaseworkerservice:
+    image: ${DOCKER_REGISTRY-}purchase.worker
+    build:
+      context: .
+      dockerfile: Purchase.Worker/Dockerfile

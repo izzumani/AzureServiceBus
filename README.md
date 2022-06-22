@@ -1,0 +1,84 @@
+# Thrive Template
+
+## Architecture
+
+
+*Event-Driven
+*Clean Architecture
+
+## Design Patterns
+*CQRS - WebApi's*
+*Event Sourcing*
+*Repository Pattern*
+
+
+
+# Solution Architecture
+
+**
+Core Project (Domain) (The models of what our application represents)
+	Entities
+	Value Objects
+	Aggregates (if doing DDD)
+	Enumerations
+
+
+Application Project  (The use cases or how to solve the user also needs our business logic)
+	Application Interfaces
+	View Models / DTOs
+	Mappers
+	Application Exceptions
+	Validation
+	Logic
+	Commands / Queries (if doing CQRS)
+
+
+Infrastructure Project  (This is external dependencies such as Repositories, controllers, and integrations to services (like external APIs, Stripe, etc.))
+	Database
+	Web services
+	Files
+	Message Bus
+	Logging
+	Configuration
+
+Persistence Project (Different types of data stores. EF)
+
+Presentation Project
+	MVC Controllers
+	Web API Controllers
+	Swagger / NSwag
+	Authentication / Authorisation
+
+Common
+
+
+Test
+**
+
+# Tech Stack
+**Tech Stack / Libraries**
+
+*.NET Core 6.0*
+*Application Insights *
+*SQL Server, *
+*EntitiyFramework Core,*
+*Docker, *
+*NUnit Test, *
+*Moq *
+*AutoFac *
+*MediatR - WebApi*
+*Azure Service Bus - using Correlation Filter with the property Label*
+
+#MSSQL Database design
+Please create a local copy on your machine and save all script into this solution. 
+
+#ToDo
+*Cache Aside*
+*Circuit-Breaker*
+*Retry*
+
+Solution is designed with Event-Driven architecture, this Worker Service will be consuming and producing events and follow a model of eventual consistency. 
+When an underlying service is unavailable it would expect the requests to be processed once the service is back up and running 
+
+We will be using Azure Service Bus to deliver events and messages. 
+
