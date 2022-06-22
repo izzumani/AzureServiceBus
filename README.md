@@ -1,4 +1,21 @@
-# Thrive Template
+Designed solution that will process transactions in a Service Bus Topic, persist the transaction into a MSSQL DB. 
+
+it perform the following:
+
+Auditing of the message pulled from service bus topic
+Request and Response Auditing
+Auditing of the message stored into MSSQL
+Application Insights monitoring for Worker Service is enabled
+Application insights request response logging
+
+It emphasis on SOLID design principles. 
+
+
+
+Autofac
+Azure Service Bus
+
+Its a background worker service that will process all purchase transactions from a service bus Topic and persist into a DB
 
 ## Architecture
 
@@ -16,7 +33,7 @@
 # Solution Architecture
 
 **
-Core Project (Domain) (The models of what our application represents)
+Core Project (Domain) (The models of what this application represents)
 	Entities
 	Value Objects
 	Aggregates (if doing DDD)
@@ -69,8 +86,7 @@ Test
 *MediatR - WebApi*
 *Azure Service Bus - using Correlation Filter with the property Label*
 
-#MSSQL Database design
-Please create a local copy on your machine and save all script into this solution. 
+
 
 #ToDo
 *Cache Aside*
@@ -80,5 +96,5 @@ Please create a local copy on your machine and save all script into this solutio
 Solution is designed with Event-Driven architecture, this Worker Service will be consuming and producing events and follow a model of eventual consistency. 
 When an underlying service is unavailable it would expect the requests to be processed once the service is back up and running 
 
-We will be using Azure Service Bus to deliver events and messages. 
+We are be using Azure Service Bus to deliver events and messages. 
 
